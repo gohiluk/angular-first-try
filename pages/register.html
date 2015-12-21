@@ -1,0 +1,14 @@
+<div>This is login page</div>
+
+<div class="register-wrapper">
+    <form class="form-signin" ng-show="!registered">
+        <h2 class="form-signin-heading">Please register</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input ng-model="user.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="user.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <button class="btn btn-lg btn-primary btn-block" ng-click="submit()">Register</button>
+    </form>
+    <p style="padding:15px;" class="bg-success" ng-show="registered">Registered successfully. Now <a href="#login" >login.</a></p>
+    <p style="padding:15px;" class="bg-danger" ng-show="error">Ups.. We have some problems. Try later.</p>
+</div>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css" />
+    <link rel="stylesheet" href="pages/css/main.css" />
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="ui-bootstrap-tpls-0.14.3.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular-cookies.js"></script>
+
+    <script src="services/RegisterService.js"></script>
+    <script src="services/LoginService.js"></script>
+
+    <script src="controllers/MainController.js"></script>
+    <script src="controllers/LoginController.js"></script>
+    <script src="controllers/RegisterController.js"></script>
+    <script src="controllers/GlobalController.js"></script>
+    <script src="controllers/CarsController.js"></script>
+
+    <script src="app.js"></script>
+
+    <meta charset="UTF-8">
+</head>
+<body ng-app="dziennikKosztow">
+
+<!-- HEADER AND NAVBAR -->
+<header ng-controller="GlobalController">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Mój dziennik kosztów</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li ng-show="showMyCars"><a href="#cars"><i class="fa fa-car"></i> My cars</a></li>
+                <li ng-show="!showMyCars"><a href="#login"><i class="fa fa-shield"></i> Login</a></li>
+                <li ng-show="showMyCars"><a href="#logout" ng-click="logout()"><i class="fa fa-shield"></i> Logout</a></li>
+                <!--<li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>-->
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div id="main">
+
+    <div class="page {{ pageClass }}" ng-view></div>
+
+</div>
+
+</body>
+</html>
