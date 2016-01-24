@@ -23,6 +23,16 @@ var myapp = angular.module('dziennikKosztow', ['ui.bootstrap', 'ngRoute', 'dzien
             .when('/cars', {
                 templateUrl: 'pages/cars.html',
                 controller: 'CarsController'
+            })
+
+            .when('/cars/:id', {
+                templateUrl: 'pages/car.html',
+                controller: 'CarController'
+            })
+
+            .when('/logout', {
+                templateUrl: 'pages/logout.html',
+                controller: 'LogoutController'
             });
 
     });
@@ -33,13 +43,17 @@ angular.module('dziennikKosztow.controllers',
         'dziennikKosztow.controllers.GlobalController',
         'dziennikKosztow.controllers.MainController',
         'dziennikKosztow.controllers.LoginController',
-        'dziennikKosztow.controllers.RegisterController'
+        'dziennikKosztow.controllers.RegisterController',
+        'dziennikKosztow.controllers.CarsController',
+        'dziennikKosztow.controllers.CarController',
+        'dziennikKosztow.controllers.LogoutController'
     ]);
 
 angular.module('dziennikKosztow.services',
     [
         'dziennikKosztow.services.RegisterService',
-        'dziennikKosztow.services.LoginService'
+        'dziennikKosztow.services.LoginService',
+        'dziennikKosztow.services.CarService'
     ]);
 
 myapp.factory('httpRequestInterceptor', function ($cookieStore) {
@@ -71,4 +85,42 @@ myapp.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.headers.common['Accept'] = 'application/json, text/javascript';
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
     $httpProvider.defaults.useXDomain = true;
+}]);
+
+myapp.directive("fileread", [function () {
+    return {
+        scope: {
+            fileread: "="
+        },
+        link: function (scope, element, attributes) {
+            element.bind("change", function (changeEvent) {
+                var reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    scope.$apply(function () {
+                        //scope.fileread = loadEvent.target.result;
+                        //scope.fileread = changeEvent.target.files[0];
+                        document.getElementById('preview').setAttribute('src', loadEvent.target.result);
+                    });
+                };
+                reader.readAsDataURL(changeEvent.target.files[0]);
+                scope.fileread = changeEvent.target.files[0];
+            });
+        }
+    }
+}]);
+
+myapp.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+
+            element.bind('change', function () {
+                scope.$apply(function () {
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
 }]);

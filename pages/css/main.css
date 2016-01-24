@@ -4,7 +4,7 @@ body {
 }
 
 
-.login-wrapper, .register-wrapper {
+.login-wrapper, .register-wrapper, .wrapper {
     width: 500px;
     margin: 0 auto;
 }
@@ -15,4 +15,16 @@ body {
 
 .navbar-nav > li > a {
     color: white;
+}
+
+.displaynone {
+    display: none;
+}
+
+.pageInterface {
+   margin-left: 50px;
+}
+
+#cars {
+    margin-top: 50px;
 }

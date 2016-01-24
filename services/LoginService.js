@@ -1,5 +1,5 @@
 angular.module('dziennikKosztow.services.LoginService', [])
-    .service('LoginService', ['$log', '$http','$cookieStore', function ($log, $http, $cookieStore) {
+    .service('LoginService', ['$log', '$http','$cookieStore', '$location', function ($log, $http, $cookieStore, $location) {
 
         return {
             login: function (user, $scope) {
@@ -17,6 +17,8 @@ angular.module('dziennikKosztow.services.LoginService', [])
                         $scope.loggedIn = true; // lub przerzuc na home
                         console.log(response.data.access_token);
                         $cookieStore.put('token', response.data.access_token);
+                        $scope.showCars();
+                        $location.path("/cars");
                     },
                     function (response) { // optional
                         // failed
