@@ -1,0 +1,19 @@
+<div class="wrapper centered" id="serviceForm">
+    <div>
+        <form>
+
+            <label>date</label>
+            <input ng-model="service.date" class="form-control" type="date" name="date" min="2000-01-02" required="" autofocus=""/>
+
+            <label>mileage</label>
+            <input ng-model="service.mileage" class="form-control" type="number" name="quantity" min="0" id="datePicker">
+
+            <label>description</label>
+            <textarea ng-model="service.description" class="form-control" name="description" cols="40" rows="5" required=""></textarea>
+
+            <label></label>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="addService()">Add service</button>
+
+        </form>
+    </div>
+</div>

@@ -30,6 +30,16 @@ var myapp = angular.module('dziennikKosztow', ['ui.bootstrap', 'ngRoute', 'dzien
                 controller: 'CarController'
             })
 
+            .when('/cars/:id/services', {
+                templateUrl: 'pages/services.html',
+                controller: 'ServicesController'
+            })
+
+            .when('/cars/:id/service', {
+                templateUrl: 'pages/service.html',
+                controller: 'ServiceController'
+            })
+
             .when('/logout', {
                 templateUrl: 'pages/logout.html',
                 controller: 'LogoutController'
@@ -46,6 +56,8 @@ angular.module('dziennikKosztow.controllers',
         'dziennikKosztow.controllers.RegisterController',
         'dziennikKosztow.controllers.CarsController',
         'dziennikKosztow.controllers.CarController',
+        'dziennikKosztow.controllers.ServicesController',
+        'dziennikKosztow.controllers.ServiceController',
         'dziennikKosztow.controllers.LogoutController'
     ]);
 
@@ -53,7 +65,8 @@ angular.module('dziennikKosztow.services',
     [
         'dziennikKosztow.services.RegisterService',
         'dziennikKosztow.services.LoginService',
-        'dziennikKosztow.services.CarService'
+        'dziennikKosztow.services.CarService',
+        'dziennikKosztow.services.ServiceService'
     ]);
 
 myapp.factory('httpRequestInterceptor', function ($cookieStore) {
