@@ -36,3 +36,5 @@ body {
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
+
+td { white-space:pre }

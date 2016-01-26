@@ -2,24 +2,11 @@ angular.module('dziennikKosztow.services.ServiceService', [])
     .service('ServiceService', ['$log', '$http', function ($log, $http) {
 
         return {
-            addCar: function (car, callbackfun) {
-                var url ='/api/cars';
-                var fd = new FormData();
-                fd.append('name', car.name);
-                fd.append('picture', car.picture);
-                $http.post(url, fd, {
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
-                })
-                    .success(function(data){
-                        callbackfun(data);
-                    })
-                    .error(function(){
-                        alert("error");
-                    });
+            addService: function (service) {
+                return $http.post("/api/service", service);
             },
-            getCars: function() {
-                return $http.get('/api/getCars');
+            getServices: function(carId) {
+                return $http.get('/api/service?carId='+carId);
             },
             getCar: function(id) {
                 return $http.get('/api/cars/'+id);

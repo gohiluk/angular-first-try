@@ -3,10 +3,13 @@
         <form>
 
             <label>date</label>
-            <input ng-model="service.date" class="form-control" type="date" name="date" min="2000-01-02" required="" autofocus=""/>
+            <input ng-model="service.serviceDate" class="form-control" type="date" name="date" min="2000-01-02" required="" autofocus=""/>
 
             <label>mileage</label>
-            <input ng-model="service.mileage" class="form-control" type="number" name="quantity" min="0" id="datePicker">
+            <input ng-model="service.mileage" class="form-control" type="number" name="quantity" min="0">
+
+            <label>price</label>
+            <input ng-model="service.price" class="form-control" type="number" name="price" min="0">
 
             <label>description</label>
             <textarea ng-model="service.description" class="form-control" name="description" cols="40" rows="5" required=""></textarea>
