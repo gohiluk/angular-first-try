@@ -2,25 +2,38 @@
     <button ng-click="addService()" class="btn btn-success" ng-show="!loading">add service</button>
 </div>
 
+<div class="sk-cube-grid" ng-show="loading">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+</div>
 
-<div class="wrapper centered">
+<div class="wrapper-big centered" ng-show="!loading">
     <table class="table">
 
         <thead>
         <tr>
-            <td>Date</td>
-            <td>Mileage</td>
-            <td>Price</td>
-            <td>Description</td>
+            <td class="col-md-1">Date</td>
+            <td class="col-md-1">Mileage</td>
+            <td class="col-md-1">Price</td>
+            <td class="col-md-8">Description</td>
+            <td class="col-md-1">Options</td>
         </tr>
         </thead>
 
         <tbody>
         <tr ng-repeat="service in services">
-            <td>{{ service.serviceDate }}</td>
+            <td>{{ service.serviceDate | date:'dd.MM.yyyy' }}</td>
             <td>{{ service.mileage }}</td>
-            <td>{{ service.price }}</td>
+            <td>{{ service.price | currency:''}} zł</td>
             <td>{{ service.description }}</td>
+            <td><a ng-click="editService(service.id)"><i class="fa fa-pencil-square-o"></i></a>  <i class="fa fa-times"></i></td>
         </tr>
         </tbody>
 

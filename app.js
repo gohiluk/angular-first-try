@@ -40,6 +40,11 @@ var myapp = angular.module('dziennikKosztow', ['ui.bootstrap', 'ngRoute', 'dzien
                 controller: 'ServiceController'
             })
 
+            .when('/cars/:id/service/:ids', {
+                templateUrl: 'pages/service.html',
+                controller: 'ServiceController'
+            })
+
             .when('/logout', {
                 templateUrl: 'pages/logout.html',
                 controller: 'LogoutController'

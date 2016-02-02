@@ -9,13 +9,13 @@
             <input ng-model="service.mileage" class="form-control" type="number" name="quantity" min="0">
 
             <label>price</label>
-            <input ng-model="service.price" class="form-control" type="number" name="price" min="0">
+            <input ng-model="service.price" class="form-control" name="price" min="0">
 
             <label>description</label>
             <textarea ng-model="service.description" class="form-control" name="description" cols="40" rows="5" required=""></textarea>
 
             <label></label>
-            <button class="btn btn-lg btn-primary btn-block" ng-click="addService()">Add service</button>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="serviceAction()">{{buttonOption}}</button>
 
         </form>
     </div>

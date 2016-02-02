@@ -7,10 +7,6 @@
 <div class="wrapper displaynone" id="carForm">
     <div>
         <form>
-            <label>name</label>
-            <input ng-model="car.name" id="inputCarName" class="form-control" placeholder="Car name" required=""
-                   autofocus=""/>
-
             <div style="margin-bottom: 10px; text-align: center">
                 <img ng-click="loadImage()" id="preview" src="" alt="choose car image"
                      style="width:200px; height:100px; cursor:pointer"/>
@@ -18,6 +14,14 @@
                        data-buttonText="Choose image" name="file" style="display:none">
             </div>
 
+            <label>name</label>
+            <input ng-model="car.name" id="inputCarName" class="form-control" placeholder="Car name" required=""
+                   autofocus=""/>
+
+            <label>name</label>
+            <input ng-model="car.mileage" id="inputCarMileage" class="form-control" placeholder="0" required="" value="0"/>
+
+            <label></label>
             <button class="btn btn-lg btn-primary btn-block" ng-click="addCar()">Add car</button>
         </form>
     </div>
@@ -37,11 +41,12 @@
 
 <div id="cars">
     <div class="car" ng-repeat="c in cars" style="width:33%; float:left; padding: 30px;">
-        <p style="float: left"><img ng-src="{{c.base64String}}" style="width:173px; height:130px; cursor:pointer;"/></p>
+        <p style="float: left"><img ng-src="{{c.base64String}}" style="width:173px; height:130px; cursor:pointer; margin-right: 10px;"/></p>
         <div style="float: left">
-        <h1>{{c.name}}</h1>
-        <a ng-href="#/cars/{{c.id}}">edytuj</a>
-        <a ng-href="#/cars/{{c.id}}/services">dziennik kosztów</a>
+            <h1 style="margin-top:0px">{{c.name}}</h1>
+            <p>przebieg: {{c.mileage}} km</p>
+            <p><a ng-href="#/cars/{{c.id}}">edytuj</a></p>
+            <p><a ng-href="#/cars/{{c.id}}/services">dziennik kosztów</a></p>
         </div>
         <!--<div ng-if="$index % 3 == 0" style="clear:both"></div>-->
     </div>

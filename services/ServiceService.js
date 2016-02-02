@@ -8,26 +8,11 @@ angular.module('dziennikKosztow.services.ServiceService', [])
             getServices: function(carId) {
                 return $http.get('/api/service?carId='+carId);
             },
-            getCar: function(id) {
-                return $http.get('/api/cars/'+id);
+            getService: function(id, carId) {
+                return $http.get('/api/service/'+id+'?carId='+carId);
             },
-            updateCar: function(id, car) {
-                var url ='/api/cars/'+id;
-                var fd = new FormData();
-                fd.append('name', car.name);
-                if (car.picture) {
-                    fd.append('picture', car.picture);
-                }
-                $http.post(url, fd, {
-                    transformRequest: angular.identity,
-                    headers: {'Content-Type': undefined}
-                })
-                    .success(function(){
-                        alert("succesS");
-                    })
-                    .error(function(){
-                        alert("error");
-                    });
+            updateService: function(service, id, carId) {
+                return $http.post("/api/service/"+id+'?carId='+carId, service);
             }
         };
 

@@ -14,10 +14,6 @@
 <div class="wrapper" id="carForm" ng-show="!loading">
     <div>
         <form>
-            <label>name</label>
-            <input ng-model="car.name" id="inputCarName" class="form-control" placeholder="Car name" required=""
-                   autofocus=""/>
-
             <div style="margin-bottom: 10px; text-align: center">
                 <img ng-src="{{car.base64String}}" ng-click="loadImage()" id="preview" src="" alt="choose car image"
                      style="width:200px; height:100px; cursor:pointer"/>
@@ -25,6 +21,14 @@
                        data-buttonText="Choose image" name="file" style="display:none">
             </div>
 
+            <label>name</label>
+            <input ng-model="car.name" id="inputCarName" class="form-control" placeholder="Car name" required=""
+                   autofocus=""/>
+
+            <label>mileage</label>
+            <input ng-model="car.mileage" id="inputCarMileage" class="form-control" placeholder="0" required=""/>
+
+            <label></label>
             <button class="btn btn-lg btn-primary btn-block" ng-click="editCar()">Save car</button>
         </form>
     </div>

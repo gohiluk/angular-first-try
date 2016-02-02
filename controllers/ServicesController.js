@@ -19,6 +19,8 @@ angular.module('dziennikKosztow.controllers.ServicesController', [])
             $location.path("/cars/"+$routeParams.id+"/service");
         }
 
-
+        $scope.editService = function(serviceId) {
+            $location.path("/cars/"+$routeParams.id+"/service/"+serviceId);
+        }
 
     });

@@ -1,5 +1,5 @@
 body {
-    background: #FF5A09;
+    background: black;
     color: white;
 }
 
@@ -14,8 +14,15 @@ body {
     margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+    .wrapper-big {
+        width: 100%;
+    }
+}
+
+
 .navbar-default {
-    background: #393939;
+    background: #B81D18;
 }
 
 .navbar-nav > li > a {
@@ -27,7 +34,7 @@ body {
 }
 
 .pageInterface {
-   margin-left: 50px;
+    margin-left: 50px;
 }
 
 #cars {
@@ -45,4 +52,8 @@ body {
 td {
     white-space:pre;
     text-align: center;
+}
+
+.btn-primary {
+    background: #004687
 }
